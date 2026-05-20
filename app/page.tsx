@@ -253,6 +253,12 @@ function InternalLink({ title, url, className = "" }: { title: string; url: stri
 }
 
 function Header({ activeSection }: { activeSection: string }) {
+  const handleAboutClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    window.history.pushState(null, "", "/");
+    window.scrollTo({ top: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  };
+
   return (
     <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[48%] lg:flex-col lg:justify-between lg:py-24">
       <div>
@@ -266,7 +272,7 @@ function Header({ activeSection }: { activeSection: string }) {
             {sections.map((section) =>
               section.hideFromNav ? null : (
                 <li key={section.heading}>
-                  <a className={`group flex items-center py-3 ${activeSection === section.heading.toLowerCase() ? "active" : ""}`} href={section.heading === "About" ? "/" : `#${section.heading.toLowerCase()}`}>
+                  <a className={`group flex items-center py-3 ${activeSection === section.heading.toLowerCase() ? "active" : ""}`} href={section.heading === "About" ? "/" : `#${section.heading.toLowerCase()}`} onClick={section.heading === "About" ? handleAboutClick : undefined}>
                     <span className="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none" />
                     <span className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">{section.heading}</span>
                   </a>
