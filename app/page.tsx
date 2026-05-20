@@ -49,7 +49,7 @@ const socials = [
 
 const experience: ExperienceJob[] = [
   {
-    date: "Mar 2025 — Present",
+    date: "Mar 2025 - Present",
     ariaDate: "March 2025 to Present",
     company: { name: "Alactive", link: "https://www.linkedin.com/company/alactive" },
     positions: ["Founding Engineer"],
@@ -57,7 +57,7 @@ const experience: ExperienceJob[] = [
     tech: ["TypeScript", "Python", "Node.js", "Docker", "REST APIs"],
   },
   {
-    date: "Nov 2024 — Feb 2025",
+    date: "Nov 2024 - Feb 2025",
     ariaDate: "November 2024 to February 2025",
     company: { name: "GO PLATFORM", link: "https://www.linkedin.com/company/go-platform" },
     positions: ["Full-stack Developer (Internship)"],
@@ -65,7 +65,7 @@ const experience: ExperienceJob[] = [
     tech: ["Vue", "Express", "Node.js", "TypeScript", "JavaScript"],
   },
   {
-    date: "May 2023 — Dec 2023",
+    date: "May 2023 - Dec 2023",
     ariaDate: "May 2023 to December 2023",
     company: { name: "Datafinity", link: "https://datafinity.io" },
     positions: ["Back End Engineer"],
@@ -73,7 +73,7 @@ const experience: ExperienceJob[] = [
     tech: ["Supabase", "PostgreSQL", "Node.js", "Redis", "REST APIs"],
   },
   {
-    date: "Dec 2022 — Mar 2023",
+    date: "Dec 2022 - Mar 2023",
     ariaDate: "December 2022 to March 2023",
     company: { name: "Brighter Generation", link: "https://brightergeneration.info" },
     positions: ["Full Stack Developer (Internship)"],
@@ -291,30 +291,23 @@ function Header({ activeSection }: { activeSection: string }) {
 }
 
 function About() {
-  const linkClass = "font-medium text-slate-200";
-
   return (
     <div>
       <p className="mb-4">
-        I&apos;m a frontend engineer who cares about accessible, pixel-perfect experiences on the web. Day to day I lean on TypeScript and JavaScript across React and Next.js, with Node.js when the UI needs a solid API surface; I&apos;m also fluent in Python for tooling and services, comfortable with C++, SQL, and Bash when work sits closer to systems or data, and I reach for PostgreSQL, MongoDB, Redis, Docker, Tailwind CSS, Vue, Express, and GitHub Actions when the problem calls for them.
+        I&apos;m a software engineer who enjoys building products that sit at the intersection of AI, backend systems, and everyday usability. Most of my work has been about turning messy technical constraints into software that feels reliable, fast, and easy to use.
       </p>
       <p className="mb-4">
-        Right now I&apos;m a founding engineer at{" "}
-        <a className={linkClass} href="https://www.linkedin.com/company/alactive" target="_blank" rel="noreferrer noopener" aria-label="Alactive on LinkedIn (opens in a new tab)">
-          Alactive
-        </a>
-        , leading development of a multi-agent system with models tuned for specific tasks. I integrate the product with WhatsApp, Outlook and Gmail, web clients, and multiple property-management systems using public APIs and targeted reverse engineering where integrations aren&apos;t documented. I cut end-to-end response time by about twenty-six percent with a router that selects models based on query complexity, and I build internal tools to monitor and operate the platform.
+        Most recently, I was the founding engineer at <span className="font-medium text-slate-200">Alactive</span>, where I led development of a multi-agent system integrated with WhatsApp, Gmail, Outlook, web clients, and multiple property-management platforms. Some of those integrations came through public APIs, and some required careful reverse engineering. I also built internal tools for monitoring, analyzing, and maintaining the system in production.
       </p>
       <p className="mb-4">
-        Earlier roles rounded me out across the stack: I shipped Vue and Express features at GO PLATFORM after researching competitors and reverse-engineering closed-source tools to map architecture; at Datafinity I scaled Supabase-backed Postgres with indexing and caching while locking down TLS, hardened APIs, and access control; at Brighter Generation I led a team of four on a chronic-care monitoring product deployed across hospitals, pairing React, Node, Express, and MongoDB with IoT hardware collaborators.
+        Before that, I worked across a mix of backend-heavy and product-driven roles. At <span className="font-medium text-slate-200">Datafinity</span>, I worked on three MVPs for startups, helping turn early product ideas into working software. At <span className="font-medium text-slate-200">GO PLATFORM</span>, I studied competitor products and reverse-engineered closed systems to better understand their underlying workflows. Earlier, at <span className="font-medium text-slate-200">Brighter Generation</span>, I helped build a chronic-care monitoring system used in hospital environments.
       </p>
       <p className="mb-4">
-        I&apos;m pursuing a BS in Software Engineering at Addis Ababa Science and Technology University (ongoing since September 2023), with coursework spanning object-oriented programming, data structures and algorithms, web and mobile development, requirements and systems design, operating systems, agile delivery, introductory ML, and security. On the side I keep shipping projects like browser extensions and an applicant-tracking workspace—always chasing interfaces that feel great and backends that stay dependable.
+        Outside of work, I keep building products of my own, including <span className="font-medium text-slate-200">Tabs</span>, and an <span className="font-medium text-slate-200">Application Tracking System</span>  
       </p>
     </div>
   );
 }
-
 function Experience() {
   return (
     <div>
@@ -358,7 +351,7 @@ function Experience() {
         ))}
       </ol>
       <div className="mt-12">
-        <ExternalLink title="View Full Résumé" url="/resume.pdf" className="font-semibold text-slate-200" />
+        <ExternalLink title="View Full Resume" url="/resume.pdf" className="font-semibold text-slate-200" />
       </div>
     </div>
   );
@@ -442,7 +435,7 @@ function Projects() {
 function Footer() {
   return (
     <footer className="max-w-md pb-16 text-sm text-slate-500 sm:pb-0">
-      <p>© 2026 Yoseph Kedir</p>
+      <p>Copyright 2026 Yoseph Kedir</p>
     </footer>
   );
 }
@@ -452,14 +445,21 @@ function Section({
   label,
   children,
   sectionRef,
+  fullHeight = false,
 }: {
   heading: string;
   label: string;
   children: React.ReactNode;
   sectionRef: (element: HTMLElement | null) => void;
+  fullHeight?: boolean;
 }) {
   return (
-    <section id={heading.toLowerCase()} className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label={label} ref={sectionRef}>
+    <section
+      id={heading.toLowerCase()}
+      className={`mb-16 scroll-mt-16 md:mb-24 lg:[scroll-margin-top:-2px] ${fullHeight ? "lg:min-h-[calc(100vh-6rem+0.5rem)] lg:mb-0 lg:flex lg:flex-col lg:justify-center" : "lg:mb-36"}`}
+      aria-label={label}
+      ref={sectionRef}
+    >
       <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
         <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">{heading}</h2>
       </div>
@@ -522,7 +522,7 @@ export default function Home() {
         <div className="lg:flex lg:justify-between lg:gap-4">
           <Header activeSection={activeSection} />
           <main id="content" className="pt-24 lg:w-[52%] lg:py-24">
-            <Section heading="About" label="About me" sectionRef={(element) => (sectionRefs.current[0] = element)}>
+            <Section heading="About" label="About me" sectionRef={(element) => (sectionRefs.current[0] = element)} fullHeight>
               <About />
             </Section>
             <Section heading="Experience" label="Work experience" sectionRef={(element) => (sectionRefs.current[1] = element)}>
