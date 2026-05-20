@@ -266,7 +266,7 @@ function Header({ activeSection }: { activeSection: string }) {
             {sections.map((section) =>
               section.hideFromNav ? null : (
                 <li key={section.heading}>
-                  <a className={`group flex items-center py-3 ${activeSection === section.heading.toLowerCase() ? "active" : ""}`} href={`#${section.heading.toLowerCase()}`}>
+                  <a className={`group flex items-center py-3 ${activeSection === section.heading.toLowerCase() ? "active" : ""}`} href={section.heading === "About" ? "/" : `#${section.heading.toLowerCase()}`}>
                     <span className="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none" />
                     <span className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">{section.heading}</span>
                   </a>
@@ -456,7 +456,7 @@ function Section({
   return (
     <section
       id={heading.toLowerCase()}
-      className={`mb-16 scroll-mt-16 md:mb-24 lg:[scroll-margin-top:-2px] ${fullHeight ? "lg:min-h-[calc(100vh-6rem+0.5rem)] lg:mb-0 lg:flex lg:flex-col lg:justify-center" : "lg:mb-36"}`}
+      className={`mb-16 scroll-mt-16 md:mb-24 lg:scroll-mt-24 ${fullHeight ? "lg:min-h-[calc(100vh-6rem+0.5rem)] lg:mb-0 lg:flex lg:flex-col" : "lg:mb-36"}`}
       aria-label={label}
       ref={sectionRef}
     >
