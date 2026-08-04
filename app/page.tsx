@@ -18,8 +18,8 @@ type ExperienceJob = {
 type ProjectCard = {
   title: string;
   link: string;
-  image: string;
-  alt: string;
+  image?: string;
+  alt?: string;
   desc: string;
   tech?: string[];
   github?: string;
@@ -49,47 +49,71 @@ const socials = [
 
 const experience: ExperienceJob[] = [
   {
-    date: "Mar 2025 - Present",
-    ariaDate: "March 2025 to Present",
+    date: "Apr 2026 - Present",
+    ariaDate: "April 2026 to Present",
+    company: { name: "GiveThanks", link: "https://www.linkedin.com/in/yoseph-kedir/" },
+    positions: ["CTO"],
+    desc: "Lead a three-engineer team through the end-to-end development and launch of GiveThanks, owning system architecture, feature planning, code quality, testing, and deployment across Android, iOS, and backend systems. Ship production releases for a mobile community platform used by more than 1,000 users. Architect a unified TypeScript and Express backend, engineer a resilient real-time voice-practice system, and deliver low-latency in-app video calling.",
+    tech: ["TypeScript", "React Native", "Expo", "Node.js", "Express", "PostgreSQL", "Supabase", "Drizzle ORM", "Socket.IO", "Deepgram", "Kotlin"],
+  },
+  {
+    date: "Mar 2025 - Feb 2026",
+    ariaDate: "March 2025 to February 2026",
     company: { name: "Alactive", link: "https://www.linkedin.com/company/alactive" },
     positions: ["Founding Engineer"],
-    desc: "Lead development of a multi-agent system with models tuned for specific tasks. Integrate the product with WhatsApp, Outlook and Gmail, web clients, and multiple property-management systems using public APIs and targeted reverse engineering where integrations are undocumented. Improve response time by 26% with a router that selects models based on query complexity. Build internal tools to monitor, analyze, and operate the agentic platform.",
-    tech: ["TypeScript", "Python", "Node.js", "Docker", "REST APIs"],
+    desc: "Led development of an agentic system with multiple agents fine-tuned for specific tasks. Integrated it with WhatsApp, Outlook, Gmail, web clients, and multiple property-management systems through APIs and reverse engineering. Improved response time by 26% with a complexity-aware model router and built internal tools to monitor, analyze, and maintain the platform.",
+    tech: ["TypeScript", "JavaScript", "React", "Next.js", "Tailwind CSS", "Supabase", "Azure", "LangChain", "LangGraph", "OpenAI", "Redis", "PostgreSQL", "Docker"],
   },
   {
     date: "Nov 2024 - Feb 2025",
     ariaDate: "November 2024 to February 2025",
     company: { name: "GO PLATFORM", link: "https://www.linkedin.com/company/go-platform" },
     positions: ["Full-stack Developer (Internship)"],
-    desc: "Research competitor platforms to inform product direction and system design. Reverse engineer closed-source software to map architecture and workflows. Deliver core application features on Vue for the frontend and Express for backend services.",
-    tech: ["Vue", "Express", "Node.js", "TypeScript", "JavaScript"],
+    desc: "Researched competitor platforms to understand product capabilities and drive effective system-design strategies. Reverse-engineered closed-source proprietary software to map its architecture and workflows, then developed core application features with Vue and Express.",
+    tech: ["Vue.js", "Nuxt.js", "Express.js"],
   },
   {
     date: "May 2023 - Dec 2023",
     ariaDate: "May 2023 to December 2023",
     company: { name: "Datafinity", link: "https://datafinity.io" },
     positions: ["Back End Engineer"],
-    desc: "Design, implement, and maintain a scalable database architecture on Supabase as usage grows. Reduce database query latency through strategic indexing and a high-performance caching layer. Ship secure backend integrations with TLS, hardened API endpoints, and strict access-control policies for reliable communication with the frontend.",
-    tech: ["Supabase", "PostgreSQL", "Node.js", "Redis", "REST APIs"],
+    desc: "Designed, implemented, and maintained a scalable Supabase database architecture for growing application demands. Reduced query latency by 2.1x through strategic indexing and a high-performance caching layer, and implemented secure backend integrations with TLS, hardened API endpoints, and strict access-control policies.",
+    tech: ["React", "Next.js", "Flask", "Node.js", "Express.js", "PostgreSQL", "MongoDB"],
   },
   {
     date: "Dec 2022 - Mar 2023",
     ariaDate: "December 2022 to March 2023",
     company: { name: "Brighter Generation", link: "https://brightergeneration.info" },
     positions: ["Full Stack Developer (Internship)"],
-    desc: "Lead a team of four to build a chronic-care patient monitoring system that automates patient management and real-time monitoring. Deploy the system across multiple hospitals, reducing average patient waiting time by 40 minutes and increasing daily hospital capacity by about 26%. Collaborate with hardware engineers to integrate IoT components into end-to-end monitoring workflows.",
-    tech: ["React", "Node.js", "Express", "MongoDB", "IoT"],
+    desc: "Led a four-developer team building a chronic patient-monitoring system that automated patient management and real-time monitoring. Deployed it across multiple hospitals, reducing average waiting time by 40 minutes and increasing daily capacity by 26%. Collaborated with hardware engineers to integrate IoT components into the end-to-end system.",
+    tech: ["React", "Flask", "Tailwind CSS"],
   },
 ];
 
 const projects: ProjectCard[] = [
   {
+    title: "ethiotrade.org",
+    link: "https://www.ethiotrade.org",
+    image: "/images/projects/ethiotrade.png",
+    alt: "EthioTrade.org dashboard comparing USD and ETB exchange rates",
+    desc: "A bilingual financial-data platform that aggregates current USD/ETB rates from Ethiopian banks, forex bureaus, and parallel-market sources. It includes currency conversion, institution search and sorting, buy/sell guidance, historical charts, rate comparisons, CSV exports, and scheduled ingestion pipelines with validation and missing-observation handling.",
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Recharts", "Node.js", "Express", "Playwright", "Cheerio", "PostgreSQL", "Neon", "Drizzle ORM"],
+  },
+  {
+    title: "Roommate.et",
+    link: "https://roommate.et",
+    image: "/images/projects/roommate.png",
+    alt: "Roommate.et marketplace for finding reviewed rooms in Addis Ababa",
+    desc: "A responsive web and mobile marketplace for discovering roommates and shared housing across Addis Ababa. It combines authenticated profiles, moderated photo listings, advanced search filters, saved listings and searches, browsing history, connection requests, in-app messaging, notifications, and cross-platform listing management.",
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "React Query", "Expo", "React Native", "PostgreSQL", "Neon", "Prisma", "Better Auth", "Vercel Blob"],
+  },
+  {
     title: "Tabs",
     link: "https://tabs.yosephk.com",
     image: "/images/projects/tabs.png",
     alt: "Tabs Chrome extension for saving and organizing browser sessions",
-    desc: "A cross-browser side-panel extension for saving and organizing the pages you want to keep without leaving them open. It lets you capture the current tab or an entire session, group and search saved links, and return to them later from a clean, lightweight workspace. Available in the Chrome Web Store and Firefox Add-ons.",
-    tech: ["React", "TypeScript", "Vite", "Chrome Extension"],
+    desc: "A cross-browser side-panel extension for Chrome and Firefox that captures the current tab or an entire window while preventing duplicate links. It supports link groups, search and filtering, metadata previews, quick actions, CSV/JSON import and export, keyboard shortcuts, customizable themes and fonts, and browser-local persistence.",
+    tech: ["React", "TypeScript", "Vite", "Chrome Extensions APIs", "Firefox WebExtensions APIs", "CSS", "Node.js"],
     github: "https://github.com/YosephSE/LumiTabs",
   },
   {
@@ -97,8 +121,8 @@ const projects: ProjectCard[] = [
     link: "https://ats-bay.vercel.app",
     image: "/images/projects/ats.png",
     alt: "Application tracking system for recruitment workflows",
-    desc: "Full-stack hiring workspace that streamlines recruitment for organizations: manage applications, track candidates through the pipeline, and coordinate hiring workflows end to end. Layer in AI-assisted ranking so reviewers can sort applicants by skills and qualifications faster.",
-    tech: ["Next.js", "React", "Express", "MongoDB", "Google Gemini"],
+    desc: "A full-stack recruitment platform with role-based candidate, administrator, and super-administrator workflows secured by JWT authentication and HTTP-only cookies. It includes job publishing and filtering, candidate profiles and resume generation, application tracking, approvals, analytics dashboards, Gemini-powered scoring, Firebase file storage, status-based review, and automated email notifications.",
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Material UI", "Redux Toolkit", "MongoDB", "Mongoose", "Firebase Storage", "Google Gemini", "Nodemailer"],
     github: "https://github.com/YosephSE/ats",
   },
 ];
@@ -303,13 +327,13 @@ function About() {
         I&apos;m a software engineer who enjoys building products that sit at the intersection of AI, backend systems, and everyday usability. Most of my work has been about turning messy technical constraints into software that feels reliable, fast, and easy to use.
       </p>
       <p className="mb-4">
-        Most recently, I was the founding engineer at <span className="font-medium text-slate-200">Alactive</span>, where I led development of a multi-agent system integrated with WhatsApp, Gmail, Outlook, web clients, and multiple property-management platforms. Some of those integrations came through public APIs, and some required careful reverse engineering. I also built internal tools for monitoring, analyzing, and maintaining the system in production.
+        Currently, I&apos;m the CTO at <span className="font-medium text-slate-200">GiveThanks</span>, where I lead a three-engineer team building and operating a mobile community platform used by more than 1,000 people. I oversee architecture, product development, testing, and deployment across Android, iOS, and backend systems, with recent work spanning real-time voice experiences, video calling, and scalable APIs.
       </p>
       <p className="mb-4">
-        Before that, I worked across a mix of backend-heavy and product-driven roles. At <span className="font-medium text-slate-200">Datafinity</span>, I worked on three MVPs for startups, helping turn early product ideas into working software. At <span className="font-medium text-slate-200">GO PLATFORM</span>, I studied competitor products and reverse-engineered closed systems to better understand their underlying workflows. Earlier, at <span className="font-medium text-slate-200">Brighter Generation</span>, I helped build a chronic-care monitoring system used in hospital environments.
+        Previously, I was the founding engineer at <span className="font-medium text-slate-200">Alactive</span>, where I developed a multi-agent platform integrated with WhatsApp, Gmail, Outlook, web clients, and multiple property-management systems. Before that, I worked across backend and product-focused roles at <span className="font-medium text-slate-200">Datafinity</span>, <span className="font-medium text-slate-200">GO PLATFORM</span>, and <span className="font-medium text-slate-200">Brighter Generation</span>.
       </p>
       <p className="mb-4">
-        Outside of work, I keep building products of my own, including <span className="font-medium text-slate-200">Tabs</span>, and an <span className="font-medium text-slate-200">Application Tracking System</span>  
+        Outside of work, I build products of my own, including <span className="font-medium text-slate-200">EthioTrade.org</span>, <span className="font-medium text-slate-200">Roommate.et</span>, <span className="font-medium text-slate-200">Tabs</span>, and an AI-powered <span className="font-medium text-slate-200">application tracking system</span>.
       </p>
     </div>
   );
@@ -404,7 +428,7 @@ function Projects() {
           <li className="mb-12" key={project.title}>
             <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
               <CardBackground />
-              <div className="z-10 sm:order-2 sm:col-span-6">
+              <div className={`z-10 sm:order-2 ${project.image ? "sm:col-span-6" : "sm:col-span-8"}`}>
                 <h3>
                   <ExternalLink title={project.title} url={project.link} fill />
                 </h3>
@@ -426,7 +450,7 @@ function Projects() {
                   </ul>
                 ) : null}
               </div>
-              <Image className="aspect-video rounded border-2 border-slate-200/10 object-cover transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1" src={project.image} alt={project.alt} width={200} height={48} />
+              {project.image ? <Image className="aspect-video rounded border-2 border-slate-200/10 object-cover transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1" src={project.image} alt={project.alt || `${project.title} project preview`} width={200} height={48} /> : null}
             </div>
           </li>
         ))}
