@@ -118,7 +118,7 @@ const projects: ProjectCard[] = [
   },
   {
     title: "Application Tracking System",
-    link: "https://ats-bay.vercel.app",
+    link: "https://ats.yosephk.com/",
     image: "/images/projects/ats.png",
     alt: "Application tracking system for recruitment workflows",
     desc: "A full-stack recruitment platform with role-based candidate, administrator, and super-administrator workflows secured by JWT authentication and HTTP-only cookies. It includes job publishing and filtering, candidate profiles and resume generation, application tracking, approvals, analytics dashboards, Gemini-powered scoring, Firebase file storage, status-based review, and automated email notifications.",
